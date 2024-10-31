@@ -33,7 +33,8 @@ enum E_Languages {
 
 ```
 
-## Translator Class (mytranslator.h)
+## Translator Class (`mytranslator.h`)
+The `MyTranslator` class handles the language switching. It installs or removes the translator depending on the selected language:
 ```cpp
 void updateLanguage(int lang) {
     switch(lang) {
@@ -55,8 +56,8 @@ void updateLanguage(int lang) {
 ```
 
 
-## QML UI (main.qml)
-Displays days of the week, translated based on the selected language. Each flag icon calls the updateLanguage function on click to switch languages dynamically.
+## QML UI (`main.qml`)
+Displays days of the week, translated based on the selected language. Each flag icon calls the `updateLanguage` function on click to switch languages dynamically.
 
 Translation Process with Qt Linguist
 Follow these steps to add or update translations:
@@ -83,15 +84,15 @@ Use Qt Linguist to translate strings for each `.ts` file. Save your translations
 
 
 ### Step 3: Compile Translation
-After translations are complete, compile the .ts files to .qm files using the lrelease command:
+After translations are complete, compile the `.ts` files to `.qm` files using the `lrelease` command:
 ```bash
 lrelease translator/lang_tr.ts translator/lang_ar.ts
 ```
-This will produce lang_tr.qm and lang_ar.qm files in the translator directory, which are ready for runtime use.
+This will produce `lang_tr.qm` and `lang_ar.qm` files in the translator directory, which are ready for runtime use.
 
 
 ### Step 4: Loading Translations in the Application
-The MyTranslator class loads these .qm files at runtime based on user selection. The .qm files are bundled with the application and accessed via ":/translator".
+The `MyTranslator` class loads these `.qm` files at runtime based on user selection. The `.qm` files are bundled with the application and accessed via `":/translator"`.
 
 ## Additional Notes
 Adding New Languages: To add a new language, create a new .ts file and follow the translation steps outlined above.
